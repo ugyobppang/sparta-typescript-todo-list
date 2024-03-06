@@ -1,14 +1,36 @@
 import styled from 'styled-components';
+import { Todo } from '../../types/interfaceTodo';
 
-export default function TodoSubmit() {
+interface TodoSubmitProps {
+  addTodo: (todo: Todo) => void;
+}
+
+export default function TodoSubmit({ addTodo }: TodoSubmitProps) {
+  const handleSubmitTodo = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const title = formData.get('title') as string;
+    const content = formData.get('content') as string;
+
+    const nextTodo = {
+      id: crypto.randomUUID(),
+      title,
+      content,
+      isDone: false,
+    };
+
+    addTodo(nextTodo);
+  };
+
   return (
     <section>
-      <FormArea>
+      <FormArea onSubmit={handleSubmitTodo}>
         <label>제목 : </label>
         <input type="text" name="title" />
         <label>내용 : </label>
         <input type="text" name="content" />
-        <button>추가하기</button>
+        <button type="submit">추가하기</button>
       </FormArea>
     </section>
   );
