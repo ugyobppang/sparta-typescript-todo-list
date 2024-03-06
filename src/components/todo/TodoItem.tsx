@@ -2,10 +2,15 @@ import { Todo } from '../../types/interfaceTodo';
 
 interface TodoItemProps {
   todo: Todo;
+  deleteTodo: (id: string) => void;
 }
 
-export default function TodoItem({ todo }: TodoItemProps) {
+export default function TodoItem({ todo, deleteTodo }: TodoItemProps) {
   const { id, title, content, isDone } = todo;
+
+  const handleDeleteClick = (id: string) => {
+    deleteTodo(id);
+  };
 
   return (
     <li>
@@ -13,7 +18,7 @@ export default function TodoItem({ todo }: TodoItemProps) {
         <h3>{title}</h3>
         <p>{content}</p>
         <div>
-          <button>삭제하기</button>
+          <button onClick={() => handleDeleteClick(id)}>삭제하기</button>
           <button>완료</button>
         </div>
       </article>

@@ -17,11 +17,15 @@ export default function TodoController() {
     setTodos([todo, ...todos]);
   };
 
+  const deleteTodo = (id: string) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <main>
       <TodoSubmit addTodo={addTodo} />
-      <TodoList listTitle="Working..." todos={todos} />
-      <TodoList listTitle="Done!" todos={todos} />
+      <TodoList listTitle="Working..." todos={todos} deleteTodo={deleteTodo} />
+      <TodoList listTitle="Done!" todos={todos} deleteTodo={deleteTodo} />
     </main>
   );
 }
