@@ -1,3 +1,9 @@
+import TodoSubmit from './TodoSubmit';
+
 export default function TodoController() {
-  return <main>TodoController</main>;
+  return (
+    <main>
+      <TodoSubmit />
+    </main>
+  );
 }
