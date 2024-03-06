@@ -1,4 +1,5 @@
 import { Todo } from '../../types/interfaceTodo';
+import TodoItem from './TodoItem';
 
 interface TodoListProps {
   todos: Todo[];
@@ -11,7 +12,7 @@ export default function TodoList({ todos, listTitle }: TodoListProps) {
       <h2>{listTitle}</h2>
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}></li>
+          <TodoItem key={todo.id} todo={todo} />
         ))}
       </ul>
     </section>
