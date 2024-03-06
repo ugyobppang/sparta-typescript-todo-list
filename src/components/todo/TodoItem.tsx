@@ -19,7 +19,7 @@ export default function TodoItem({ todo, deleteTodo }: TodoItemProps) {
         <p>{content}</p>
         <div>
           <button onClick={() => handleDeleteClick(id)}>삭제하기</button>
-          <button>완료</button>
+          <button>{isDone ? '취소' : '완료'}</button>
         </div>
       </article>
     </li>

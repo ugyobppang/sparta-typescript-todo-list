@@ -21,11 +21,18 @@ export default function TodoController() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const workingTodos = todos.filter((todo) => !todo.isDone);
+  const doneTodos = todos.filter((todo) => todo.isDone);
+
   return (
     <main>
       <TodoSubmit addTodo={addTodo} />
-      <TodoList listTitle="Working..." todos={todos} deleteTodo={deleteTodo} />
-      <TodoList listTitle="Done!" todos={todos} deleteTodo={deleteTodo} />
+      <TodoList
+        listTitle="Working..."
+        todos={workingTodos}
+        deleteTodo={deleteTodo}
+      />
+      <TodoList listTitle="Done!" todos={doneTodos} deleteTodo={deleteTodo} />
     </main>
   );
 }
