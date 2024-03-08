@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import { Todo } from '../../types/interfaceTodo';
 import TodoItem from './TodoItem';
 
@@ -15,7 +16,7 @@ export default function TodoList({
   toggleTodoIsDone,
 }: TodoListProps) {
   return (
-    <section>
+    <SectionArea>
       <h2>{listTitle}</h2>
       <ul>
         {todos.map((todo) => (
@@ -27,6 +28,20 @@ export default function TodoList({
           />
         ))}
       </ul>
-    </section>
+    </SectionArea>
   );
 }
+
+const SectionArea = styled.section`
+  margin-top: 1rem;
+  & h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  & ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+`;
