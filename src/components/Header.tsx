@@ -14,7 +14,7 @@ const HeaderArea = styled.header`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 0;
   & h1 {
     font-size: 1.2rem;
     font-weight: bold;

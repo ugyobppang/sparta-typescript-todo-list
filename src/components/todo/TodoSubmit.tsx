@@ -41,7 +41,7 @@ const FormArea = styled.form`
   flex-direction: row;
   align-items: center;
   gap: 2rem;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 0;
   & label {
     font-weight: bold;
   }
