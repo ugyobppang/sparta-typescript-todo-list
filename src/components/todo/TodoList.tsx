@@ -42,6 +42,8 @@ const SectionArea = styled.section`
   & ul {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
+    gap: 26px;
   }
 `;
