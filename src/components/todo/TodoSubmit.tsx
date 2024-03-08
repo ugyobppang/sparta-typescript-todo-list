@@ -21,6 +21,7 @@ export default function TodoSubmit({ addTodo }: TodoSubmitProps) {
     };
 
     addTodo(nextTodo);
+    (e.target as HTMLFormElement).reset();
   };
 
   return (
