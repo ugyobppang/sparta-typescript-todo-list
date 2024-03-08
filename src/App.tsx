@@ -1,3 +1,11 @@
+import Header from './components/Header';
+import TodoController from './components/todo/TodoController';
+
 export default function App() {
-  return <div>App</div>;
+  return (
+    <>
+      <Header />
+      <TodoController />
+    </>
+  );
 }
