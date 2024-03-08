@@ -3,13 +3,22 @@ import { Todo } from '../../types/interfaceTodo';
 interface TodoItemProps {
   todo: Todo;
   deleteTodo: (id: string) => void;
+  toggleTodoIsDone: (id: string) => void;
 }
 
-export default function TodoItem({ todo, deleteTodo }: TodoItemProps) {
+export default function TodoItem({
+  todo,
+  deleteTodo,
+  toggleTodoIsDone,
+}: TodoItemProps) {
   const { id, title, content, isDone } = todo;
 
   const handleDeleteClick = (id: string) => {
     deleteTodo(id);
+  };
+
+  const handleToggleClick = (id: string) => {
+    toggleTodoIsDone(id);
   };
 
   return (
@@ -19,7 +28,9 @@ export default function TodoItem({ todo, deleteTodo }: TodoItemProps) {
         <p>{content}</p>
         <div>
           <button onClick={() => handleDeleteClick(id)}>삭제하기</button>
-          <button>{isDone ? '취소' : '완료'}</button>
+          <button onClick={() => handleToggleClick(id)}>
+            {isDone ? '취소' : '완료'}
+          </button>
         </div>
       </article>
     </li>

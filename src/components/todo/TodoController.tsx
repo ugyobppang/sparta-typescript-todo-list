@@ -21,6 +21,14 @@ export default function TodoController() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const toggleTodoIsDone = (id: string) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
+  };
+
   const workingTodos = todos.filter((todo) => !todo.isDone);
   const doneTodos = todos.filter((todo) => todo.isDone);
 
@@ -31,8 +39,14 @@ export default function TodoController() {
         listTitle="Working..."
         todos={workingTodos}
         deleteTodo={deleteTodo}
+        toggleTodoIsDone={toggleTodoIsDone}
       />
-      <TodoList listTitle="Done!" todos={doneTodos} deleteTodo={deleteTodo} />
+      <TodoList
+        listTitle="Done!"
+        todos={doneTodos}
+        deleteTodo={deleteTodo}
+        toggleTodoIsDone={toggleTodoIsDone}
+      />
     </main>
   );
 }
